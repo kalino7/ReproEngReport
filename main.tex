@@ -134,7 +134,7 @@ According to Table~\ref{reprod_latex}, which utilized the same datasets as docum
 
 To confirm the reproducibility of this experiment, a CSV file was generated after executing the tool to document the total number of schemas for each category, utilizing Python's csv module. Following this, the resulting CSV file was compared with the manually created CSV file, as discussed in subsection~\ref{subsec:research}.
 
-The logic behind the comparison process was to use a hash-based checksum to analyze the hashes of both CSV files. When the hashes match, it confirms the success of the experiment. However, if the hashes differ, a differential analysis is triggered to identify any discrepancies between the files. If no differences are found, it indicates that both CSV files contain identical content,  thereby validating the success of the experiment despite the hash mismatch. Conversely, if differences are detected, it implies a failure of the reproduction experiment.
+The rationale behind the comparison process was to use a hash-based checksum to analyze the hashes of both CSV files. When the hashes match, it confirms the success of the experiment. However, if the hashes differ, a differential analysis is triggered to identify any discrepancies between the files. If no differences are found, it indicates that both CSV files contain identical content,  thereby validating the success of the experiment despite the hash mismatch. Conversely, if differences are detected, it implies a failure of the reproduction experiment.
 
  \begin{figure}
      \centering
