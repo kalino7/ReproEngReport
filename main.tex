@@ -16,7 +16,7 @@
 \newcommand\vldbauthors{\authors}
 \newcommand\vldbtitle{\shorttitle} 
 % leave empty if no availability url should be set
-\newcommand\vldbavailabilityurl{https://doi.org/10.5281/zenodo.10702318}
+\newcommand\vldbavailabilityurl{https://doi.org/10.5281/zenodo.10706620}
 % whether page numbers should be shown or not, use 'plain' for review versions, 'empty' for camera ready
 \newcommand\vldbpagestyle{plain} 
 
@@ -92,22 +92,19 @@ The research question aims to verify the consistency and accuracy of the reporte
 
 To validate the results of this reproduction report, a comprehensive comparison will be conducted between the output values of the generated schemas and those reported in the original paper.
  
-Before executing the reproduction experiment, a manually crafted CSV file documenting the results of the JSON Schema Discovery tool as described by Frozza et al. \cite{frozza2018approach} will be prepared. This file will serve as a reference for comparison against the CSV file generated from the experiment. Differential analysis will be performed to identify any discrepancies between the two sets of results.
-
-Furthermore, a hash file comparison will be conducted to ensure the exact match between the generated results and those stored in the reproduction repository. This step will help confirm the accuracy and consistency of the reproduced findings. 
-
+Before executing the reproduction experiment, a manually crafted CSV file documenting the results of the JSON Schema Discovery tool as described by Frozza et al. \cite{frozza2018approach} will be prepared. This file will serve as a reference for comparison against the CSV file generated from the experiment. A hash comparison will be conducted on the files to ensure an exact match between the generated and the manually crafted results present in the reproduction repository.  In a situation where they differ, a differential analysis will then be performed to identify any differences between the two sets of results. This step will help confirm the accuracy and consistency of the reproduced findings. 
 
 This reproduction report is primarily concentrated on validating the experimental results presented in Table \ref{dbpedia}. As a result, it will not attempt to reproduce every other experiment mentioned in \cite{frozza2018approach}. This focused scope ensures a thorough examination of specific findings outlined in the original paper.
 
 \section{Reproduction Package}
-In this section, we thoroughly examine the setup environment for our reproduction experiment, delve into the obtained results, and compare them with those documented in the original paper.
+In this section, we thoroughly examine the setup environment for our reproduction experiment, present the obtained results, and compare them with those documented in the original paper.
 
 \subsection{Setup Environment}
 To facilitate the execution of the JSON Schema Discovery tool,  a containerized environment was established using Docker for streamlined rebuilding. Additionally, patches were implemented to address broken code resulting from dependency failures, as certain dependencies were deemed obsolete at the time of reproduction.
 
-The core codes of the original tool remain unaltered, distinguishing this effort as a reproduction rather than a replication. Only adjustments to dependencies and the version of MongoDB for storing JSON documents were made, preserving the original tool's structure. The datasets used in the original study were utilized for this reproduction experiment. These datasets are automatically pulled into the container environment during the build process. By utilizing a containerized environment, all necessary dependencies for running the JSON Schema Discovery tool are installed seamlessly upon container startup, simplifying the reproduction process for other interested readers.
+The core codes of the original tool remain unaltered, distinguishing this effort as a reproduction rather than a replication. Only adjustments to dependencies and the version of MongoDB for storing JSON documents were made, preserving the original tool's structure. The datasets used in the original study were utilized for this reproduction experiment. These datasets are automatically pulled into the container environment during the build process. By utilizing a containerized environment, all necessary dependencies for running the JSON Schema Discovery tool are made available upon container startup, thereby simplifying the reproduction process for other interested readers.
 
-The experiment in the original research paper, as depicted in Table~\ref{dbpedia}, were conducted on an ASUS K45VM notebook (Intel® Core ™ i7 3610QM @ 2.30 GHz and 8GB of RAM)\cite{frozza2018approach}. In contrast, the reproduction of this experiment was conducted on an ACER Aspire A515-55 system ( Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz). However, since our focus is not on the execution time of the tool, we can assert that the difference between the two systems does not impact the results in terms of the total number of schemas generated, whether ordered or not.
+The experiment in the original research paper, as depicted in Table~\ref{dbpedia}, were conducted on an ASUS K45VM notebook (Intel® Core ™ i7 3610QM @ 2.30 GHz and 8GB of RAM)\cite{frozza2018approach}. In contrast, the reproduction of this experiment was conducted on an ACER Aspire A515-55 system ( Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz). However, given that the focus is not the execution time of the tool, we can assert that the difference between the two systems does not impact the results in terms of the total number of schemas generated, whether ordered or not.
 
 \begin{table}
 \centering
@@ -128,7 +125,7 @@ The experiment in the original research paper, as depicted in Table~\ref{dbpedia
 
 \subsection{Execution and Result}
 Table~\ref{reprod_latex} displays the results of executing the reproduction script alongside the findings of Frozza et al. \cite{frozza2018approach}. The column labels remain consistent with the descriptions outlined in Section~\ref{sec:tool_eval} of this report. 
-The first column lists the datasets used in this reproduction experiment. The second column indicates the number of generated schemas, including both raw and ordered structured schemas, produced from the reproduction environment. The third column displays the number of schemas, both raw and ordered structured, generated as documented by Frozza et al.~\cite{frozza2018approach}.
+The first column lists the datasets used in this reproduction experiment. The second column indicates the number of generated schemas, including both raw and ordered structured schemas, produced from the reproduction environment. The third column displays the number of schemas, both raw and ordered structured generated schemas, as documented by Frozza et al.~\cite{frozza2018approach}.
 
 According to Table~\ref{reprod_latex}, which utilized the same datasets as documented in the original paper, it is apparent that the reproduction process yielded a consistent number of schemas across all categories, including raw and ordered structure schemas.
 
@@ -146,7 +143,7 @@ The rationale behind the comparison process was to use a hash-based checksum to 
 At the time of conducting this reproduction experiment, the comparison indicated that both CSV files were identical, as shown in Figure~\ref{fig:experiment}. This confirmation validates that the reproduction of the experiment conducted by Frozza et al. \cite{frozza2018approach} was indeed successful.
 
 \subsection{Limitations to Validity}
-A significant challenge in validating the results of the reproduction experiment arose from the absence of the original paper's results in a format suitable for direct comparison. The experiment results presented by Frozza et al. \cite{frozza2018approach} were exclusively available in tabular format within their report and were not accompanied by accessible JSON or CSV files in the original repository containing the artifacts of the JSON Schema Discovery tool. To address this challenge, a manually crafted CSV file was generated prior to executing the tool, thereby providing a reference point for comparison. This CSV file was meticulously created by referencing Table~\ref{dbpedia} from the original paper.
+The validation of the reproduced results posed somewhat a challenge due to the unavailability of the original paper's results in a compatible format for direct comparison. The results presented by Frozza et al. \cite{frozza2018approach} were only available in a tabular format within their report and were not accompanied by any accessible JSON or CSV files. To address this challenge, a manually crafted CSV file was generated prior to the execution, thereby providing a reference point for comparison. This crafted CSV file was meticulously created by referencing Table~\ref{dbpedia} from the original paper.
 
 \subsection{Conclusion}
 The aim of this report was to reproduce the experiment conducted by Frozza et al. \cite{frozza2018approach}, as outlined in Table~\ref{dbpedia}. To achieve this, a containerized environment was established, incorporating necessary patches to ensure the successful execution of the experiment. The reproduction process yielded results consistent with those documented in the original research paper, thereby confirming the success of the reproduction experiment.
